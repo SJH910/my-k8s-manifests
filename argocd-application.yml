@@ -11,7 +11,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/yundo-main/my-k8s-manifests.git
+    repoURL: https://github.com/SJH910/my-k8s-manifests.git
     targetRevision: main
     path: monolith
   destination:
