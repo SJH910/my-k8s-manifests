@@ -4,6 +4,10 @@ kind: Application
 metadata:
   name: my-app-monolith
   namespace: argocd
+  # Application을 삭제할 때 배포된 리소스(Ingress, PVC 등)도 함께 삭제합니다.
+  # 없으면 Application만 지워지고 리소스(EBS 볼륨 포함)가 클러스터에 남습니다.
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
