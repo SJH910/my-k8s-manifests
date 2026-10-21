@@ -1,0 +1,28 @@
+# Argo CD가 GitHub Manifest 저장소의 Monolith 경로를 EKS에 동기화합니다.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-monolith
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/yundo-main/my-k8s-manifests.git
+    targetRevision: main
+    path: monolith
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+    # Ingress-NGINX admission webhook 준비 전 실패 등 일시 오류 시 재시도합니다.
+    retry:
+      limit: 5
+      backoff:
+        duration: 10s
+        factor: 2
+        maxDuration: 3m
