@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: 938917088179.dkr.ecr.ap-northeast-2.amazonaws.com/fastapi-backend:573b197cfef86952ef2043f45f8153904e91f57d
+        image: 938917088179.dkr.ecr.ap-northeast-2.amazonaws.com/fastapi-backend:d1a000584e95302cab8319d1170899193a4a6753
         env:
         - name: DB_HOST
           value: mariadb
