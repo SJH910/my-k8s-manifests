@@ -28,7 +28,7 @@ EKS
 애플리케이션 이미지는 Amazon ECR을 사용합니다.
 
 ```yaml
-image: 637423638906.dkr.ecr.ap-northeast-2.amazonaws.com/fastapi-backend:latest
+image: 938917088179.dkr.ecr.ap-northeast-2.amazonaws.com/fastapi-backend:latest
 ```
 
 EKS 노드 IAM Role에 ECR Pull 권한이 있으면 별도의
